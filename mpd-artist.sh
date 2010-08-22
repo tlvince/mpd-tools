@@ -7,6 +7,7 @@
 
 # Global variables:
 BASE="$(dirname "$(readlink -f "$0")")"     # Handle symlinks
+vertical="false"
 
 # Imports:
 . "$BASE/lib/dmenu.sh"
@@ -18,7 +19,10 @@ BASE="$(dirname "$(readlink -f "$0")")"     # Handle symlinks
 #
 getChoice()
 {
-    mpc ls | dmenu -p "Artist:"
+    dmenu="dmenu -p Artist:"
+    $vertical && dmenu+=" -l 10"
+
+    mpc ls | $dmenu
 }
 
 isRunning mpd || die "Please launch mpd"
