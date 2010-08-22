@@ -17,13 +17,16 @@ usage()
 
 wait()
 {
+    # SEC line lifted from:
+    # https://bbs.archlinux.org/viewtopic.php?pid=425558#p425558
+    # TODO: Use idle events
     SEC=$(mpc | awk -F"[ /:]" '/playing/ {print 60*($8-$6)+$9-$7}')
     stat_busy "Sleeping $SEC seconds until playing song is finshed..."
     sleep $SEC
 }
 
 [[ $# == 0 ]] && usage
-[[ -z $(mpc | grep playing) ]] && echo "mpd probably isn't playing" && exit 1
+[[ -z $(mpc | grep -F "playing") ]] && echo "mpd probably isn't playing" && exit 1
 
 case $1 in
     -s)
