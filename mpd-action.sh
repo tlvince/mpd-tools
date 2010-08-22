@@ -1,7 +1,8 @@
 #!/bin/bash
 #
 # Perform an action on `mpd` after the currently playing song is finshed.
-
+#
+# Author: Tom Vincent
 
 # get those fun BUSY/DONE messages
 USECOLOR="YES"
