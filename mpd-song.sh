@@ -4,17 +4,26 @@
 # Author:   Tom Vincent
 # Created:  2009-03-01
 
+# Global variables:
+BASE="$(dirname "$(readlink -f "$0")")"     # Handle symlinks
+
+# Imports:
+. "$BASE/lib/dmenu.sh"
+. "$BASE/lib/isRunning.sh"
+. "$BASE/lib/logging.sh"
+
 ##
 # Create a menu of songs in the current mpd playlist. 
 #
 getChoice()
 {
-    BASE="$(dirname "$(readlink -f "$0")")"     # Handle symlinks
-    . "$BASE/lib/dmenu.sh" 
-
     mpc playlist | dmenu -p "Song:"
 }
 
+isRunning mpd || die "Please launch mpd"
 
-# Use sed to find the playlist number
-mpc play $(mpc playlist | sed -ne "/^$(getChoice)$/=")
+CHOICE=$(getChoice)
+if [[ $CHOICE ]]; then
+    # Use sed to find the playlist number
+    mpc play $(mpc playlist | sed -ne "/^$CHOICE$/=")
+fi
