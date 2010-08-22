@@ -2,7 +2,8 @@
 #
 # Perform an action on `mpd` after the currently playing song is finshed.
 #
-# Author: Tom Vincent
+# Author:  Tom Vincent
+# Created: 2010-05-28
 
 # get those fun BUSY/DONE messages
 USECOLOR="YES"
