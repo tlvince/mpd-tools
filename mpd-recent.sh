@@ -28,7 +28,7 @@ NAME="mpd-recent"
 VERSION="0.1.0"
 
 # Global variables:
-LOG="$HOME/var/log/mpd-recent.log"
+LOG="$HOME/.cache/mpd/$NAME.log"
 quiet=false
 verbose=false
 
@@ -41,7 +41,7 @@ printRecent()
 {
     [[ -z $1 ]] && set 7
     local mdir="$(mpdParam '^music_directory')"
-    find "$mdir" -type f -ctime +0 -a -ctime -$1 | sed "s|$mdir/||g"
+    find "$mdir" -type f -ctime 0 -a -ctime -$1 | sed "s|$mdir/||g"
 }
 
 ##
@@ -71,6 +71,8 @@ Usage:
   $NAME [OPTION...] [ARGUMENTS...]
 
 Options:
+  -p, --print             Print a list of songs from today and $2 days
+
   -h, --help              Show help options
   -q, --quiet             Suppress all normal output
   -v, --version           Output version information and exit
@@ -85,7 +87,7 @@ version()
 {
     cat << END_VERSION
 $NAME v$VERSION
-Copyright 2010 Tom Vincent <tlvince@gmail.com>
+Copyright 2010 Tom Vincent <http://www.tlvince.com/>
 END_VERSION
 }
 
@@ -105,6 +107,9 @@ parseOpts()
         ;;
         -v|--version)
             version
+        ;;
+        -p|--print)
+            printRecent $2
         ;;
         -V|--verbose)
             verbose=true
