@@ -67,11 +67,11 @@ usage()
 {
     cat << END_USAGE
 Usage:
-  $NAME             Play files added from today and $1 days (defaults 7)
+  $NAME             Play files added from today and \$1 days (defaults 7)
   $NAME [OPTION...] [ARGUMENTS...]
 
 Options:
-  -p, --print             Print a list of songs from today and $2 days
+  -p, --print             Print a list of songs from today and \$2 days
 
   -h, --help              Show help options
   -q, --quiet             Suppress all normal output
