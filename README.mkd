@@ -1,0 +1,21 @@
+mpd-tools
+=========
+
+`mpd-tools` is a collection of scripts to control [mpd][].
+
+* mpd-goodsong.sh copyright pbrisbin
+
+## Dependencies
+
+### Global
+* coreutils
+
+### mpd-artist && mpd-song
+* netcfg
+
+## Exit codes
+    0   - successful
+    1   - bad argument
+    2   - file not found
+
+  [dmenu]: http://tools.suckless.org/dmenu/ "mpd homepage"
