@@ -26,4 +26,3 @@ isRunning mpd || die "Please launch mpd"
 CHOICE=$(getChoice) || exit 2
 mpc -q clear && mpc -q add "$CHOICE"
 mpc -q play
-mpc playlist
