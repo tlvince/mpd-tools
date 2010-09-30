@@ -3,7 +3,12 @@ mpd-tools
 
 `mpd-tools` is a collection of scripts to control [mpd][].
 
-* mpd-goodsong.sh copyright pbrisbin
+mpd-goodsong
+------------
+
+Forked from [goodsong][] v2.1 by pbrisbin. General changes:
+
+* Added a reporting function
 
 ## Dependencies
 
@@ -19,3 +24,4 @@ mpd-tools
     2   - file not found
 
   [dmenu]: http://tools.suckless.org/dmenu/ "mpd homepage"
+  [goodsong]: http://pbrisbin.com/pages/scripts.html?target=/srv/http/bin/goodsong

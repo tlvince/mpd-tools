@@ -1,19 +1,9 @@
 #!/bin/bash
 #
-# goodsong v2.1
+# goodsong: maintain a list of good songs
 #
-# pbrisbin 2009, 2010
-#
-# http://pbrisbin.com:8080/bin/goodsong
-#
-# 5/9/2010 patched by TomVincent to add:
-#
-#  * use of heredoc in message
-#  * locateMPDConf()
-#  * mpdParam()
-#  * default list as an actual playlist
-#  
-###
+# Copyright 2009, 2010 pbrisbin <http://pbrisbin.com/>
+# Copyright 2010 Tom Vincent <http://www.tlvince.com/contact/>
 
 message() {
   cat << EOF
@@ -46,7 +36,6 @@ usage: goodsong [option]
 EOF
 }
 
-# tvincent 5/9/2010 +
 # Return the mpd.conf passed as a parameter to mpd or an expected default
 locateMPDConf() {
   # Don't use any command that overrides the "real" mpd binary
@@ -66,7 +55,6 @@ locateMPDConf() {
   echo $config
 }
 
-# tvincent 5/9/2010 +
 # From the given regex ($1), find the relevant mpd.conf parameter
 mpdParam() {
   if [[ -z "$1" ]]; then
@@ -170,7 +158,6 @@ report() {
   sed -n "/^#\ $1/{n;p;}" "$list"   # Print song excluding timestamp
 }
 
-# tvincent 5/9/2010 +
 list="$(mpdParam '^playlist_directory')/goodsongs.m3u"
 touch "$list"
 
