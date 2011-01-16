@@ -19,7 +19,7 @@ NAME="mpd-launch"
 VERSION="0.3.3"
 
 # Global variables:
-CLIENT=ncmpcpp
+CLIENT=ncmpc
 PIDFILE="/tmp/$NAME.pid"
 PID_FLAG=
 
@@ -97,7 +97,7 @@ start()
 
     if [[ -z $PID_FLAG ]]; then
         /usr/bin/mpd
-        #mpdscribble
+        mpdscribble
         mpd-sima start
     fi
 
