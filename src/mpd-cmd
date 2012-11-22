@@ -2,7 +2,7 @@
 # Run the given command after the current song.
 # Copyright 2010-2012 Tom Vincent <http://tlvince.com/contact>
 
-[ "$1" ] || { echo "$0: cmd" && exit 1; }
+[ "$1" ] || { echo "usage: $0 cmd" && exit 1; }
 
 current="$(mpc current)"
 
