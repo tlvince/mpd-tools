@@ -10,4 +10,4 @@ while [ "$(mpc current)" == "$current" ]; do
   mpc idle player >/dev/null 2>&1
 done
 
-"@"
+"$@"
