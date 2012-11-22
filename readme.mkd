@@ -2,7 +2,11 @@
 
 `mpd-tools` is a collection of scripts to control [mpd][].
 
-## Authors
+## Install
+
+* [Arch Linux AUR Package][aur]
+
+## Author
 
 Copyright 2009-2012 Tom Vincent <http://tlvince.com/contact>
 
@@ -11,4 +15,5 @@ Copyright 2009-2012 Tom Vincent <http://tlvince.com/contact>
 Released under the [MIT License][license].
 
   [mpd]: http://mpd.wikia.com/wiki/Music_Player_Daemon_Wiki
+  [aur]: https://aur.archlinux.org/packages/mpd-tools-git/
   [license]: http://tlvince.mit-license.org/
